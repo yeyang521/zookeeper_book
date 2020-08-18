@@ -24,15 +24,15 @@ public class ZooKeeper_Create_API_ASync_Usage implements Watcher {
 	    
 	 zookeeper.create("/zk-test-ephemeral-", "".getBytes(), 
 	    		Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL, 
-	    		new IStringCallback(), "I am context.");
+	    		new IStringCallback(), "I am context 1.");
 	    
 	 zookeeper.create("/zk-test-ephemeral-", "".getBytes(), 
 	    		Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL, 
-	    		new IStringCallback(), "I am context.");
+	    		new IStringCallback(), "I am context 2.");
 	    
 	 zookeeper.create("/zk-test-ephemeral-", "".getBytes(), 
 	    		Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL, 
-	    		new IStringCallback(), "I am context.");
+	    		new IStringCallback(), "I am context 3.");
 	 Thread.sleep( Integer.MAX_VALUE );
     }
     

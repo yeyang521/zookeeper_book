@@ -15,6 +15,7 @@ public class ZooKeeper_Constructor_Usage_With_SID_PASSWD implements Watcher {
 				5000, //
 				new ZooKeeper_Constructor_Usage_With_SID_PASSWD());
         connectedSemaphore.await();
+        //复用session
         long sessionId = zookeeper.getSessionId();
         byte[] passwd  = zookeeper.getSessionPasswd();
         
@@ -22,7 +23,7 @@ public class ZooKeeper_Constructor_Usage_With_SID_PASSWD implements Watcher {
         zookeeper = new ZooKeeper("106.54.169.23:2181,106.54.169.23:2182,106.54.169.23:2183",
 				5000, //
 				new ZooKeeper_Constructor_Usage_With_SID_PASSWD(),//
-				1l,//
+				1L,//
 				"test".getBytes());
         //Use correct sessionId and sessionPassWd
         zookeeper = new ZooKeeper("106.54.169.23:2181,106.54.169.23:2182,106.54.169.23:2183",
