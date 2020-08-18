@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
 public class ZooKeeper_Constructor_Usage_With_SID_PASSWD implements Watcher {
     private static CountDownLatch connectedSemaphore = new CountDownLatch(1);
     public static void main(String[] args) throws Exception{
-        ZooKeeper zookeeper = new ZooKeeper("10.110.25.197:2181,10.110.25.196:2181,10.110.25.198:2181",
+        ZooKeeper zookeeper = new ZooKeeper("106.54.169.23:2181,106.54.169.23:2182,106.54.169.23:2183",
 				5000, //
 				new ZooKeeper_Constructor_Usage_With_SID_PASSWD());
         connectedSemaphore.await();
@@ -19,13 +19,13 @@ public class ZooKeeper_Constructor_Usage_With_SID_PASSWD implements Watcher {
         byte[] passwd  = zookeeper.getSessionPasswd();
         
         //Use illegal sessionId and sessionPassWd
-        zookeeper = new ZooKeeper("10.110.25.197:2181,10.110.25.196:2181,10.110.25.198:2181",
+        zookeeper = new ZooKeeper("106.54.169.23:2181,106.54.169.23:2182,106.54.169.23:2183",
 				5000, //
 				new ZooKeeper_Constructor_Usage_With_SID_PASSWD(),//
 				1l,//
 				"test".getBytes());
         //Use correct sessionId and sessionPassWd
-        zookeeper = new ZooKeeper("10.110.25.197:2181,10.110.25.196:2181,10.110.25.198:2181",
+        zookeeper = new ZooKeeper("106.54.169.23:2181,106.54.169.23:2182,106.54.169.23:2183",
 				5000, //
 				new ZooKeeper_Constructor_Usage_With_SID_PASSWD(),//
 				sessionId,//

@@ -17,7 +17,7 @@ public class ZooKeeper_Create_API_ASync_Usage implements Watcher {
 
     public static void main(String[] args) throws Exception{
         
-	 ZooKeeper zookeeper = new ZooKeeper("10.110.25.197:2181,10.110.25.196:2181,10.110.25.198:2181",
+	 ZooKeeper zookeeper = new ZooKeeper("106.54.169.23:2181,106.54.169.23:2182,106.54.169.23:2183",
 				5000, //
 				new ZooKeeper_Create_API_ASync_Usage());
 	 connectedSemaphore.await();

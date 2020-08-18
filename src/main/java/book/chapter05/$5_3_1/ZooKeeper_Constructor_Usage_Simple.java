@@ -13,7 +13,7 @@ public class ZooKeeper_Constructor_Usage_Simple implements Watcher {
     
     public static void main(String[] args) throws Exception{
         
-        ZooKeeper zookeeper = new ZooKeeper("10.110.25.197:2181,10.110.25.196:2181,10.110.25.198:2181",
+        ZooKeeper zookeeper = new ZooKeeper("106.54.169.23:2181,106.54.169.23:2182,106.54.169.23:2183",
         									5000, //
         									new ZooKeeper_Constructor_Usage_Simple());
         System.out.println(zookeeper.getState());

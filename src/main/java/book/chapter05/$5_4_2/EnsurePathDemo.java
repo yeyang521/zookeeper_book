@@ -8,7 +8,7 @@ public class EnsurePathDemo {
 
     static String path = "/zk-book/c1";
     static CuratorFramework client = CuratorFrameworkFactory.builder()
-            .connectString("10.110.25.197:2181,10.110.25.196:2181,10.110.25.198:2181")
+            .connectString("106.54.169.23:2181,106.54.169.23:2182,106.54.169.23:2183")
             .sessionTimeoutMs(5000)
             .retryPolicy(new ExponentialBackoffRetry(1000, 3))
             .build();

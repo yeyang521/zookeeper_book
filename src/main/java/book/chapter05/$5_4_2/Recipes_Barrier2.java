@@ -12,7 +12,7 @@ public class Recipes_Barrier2 {
 				public void run() {
 					try {
 						CuratorFramework client = CuratorFrameworkFactory.builder()
-					            .connectString("10.110.25.197:2181,10.110.25.196:2181,10.110.25.198:2181")
+					            .connectString("106.54.169.23:2181,106.54.169.23:2182,106.54.169.23:2183")
 					            .retryPolicy(new ExponentialBackoffRetry(1000, 3)).build();
 						client.start();
 						DistributedDoubleBarrier barrier = new DistributedDoubleBarrier(client, barrier_path,5);
