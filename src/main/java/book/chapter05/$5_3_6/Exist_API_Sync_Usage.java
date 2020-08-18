@@ -6,6 +6,7 @@ import org.apache.zookeeper.Watcher.Event.EventType;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -21,10 +22,10 @@ public class Exist_API_Sync_Usage implements Watcher {
 				5000, //
 				new Exist_API_Sync_Usage());
     	connectedSemaphore.await();
+        zk.create( path, "".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT );
+        Stat exists = zk.exists(path, true);
 
-    	zk.exists( path, true );
-    	
-    	//zk.create( path, "".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT );
+
     	
     	zk.setData( path, "123".getBytes(), -1 );
     	

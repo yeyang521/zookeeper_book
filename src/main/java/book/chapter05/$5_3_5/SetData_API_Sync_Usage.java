@@ -1,10 +1,7 @@
 package book.chapter05.$5_3_5;
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.*;
 import org.apache.zookeeper.Watcher.Event.EventType;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
-import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
 
 import java.util.concurrent.CountDownLatch;
@@ -22,8 +19,8 @@ public class SetData_API_Sync_Usage implements Watcher {
 				5000, //
 				new SetData_API_Sync_Usage());
     	connectedSemaphore.await();
-    	
-        //zk.create( path, "123".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL );
+
+        // zk.create( path, "123".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL );
         zk.getData( path, true, null );
         
         Stat stat = zk.setData( path, "456".getBytes(), -1 );
